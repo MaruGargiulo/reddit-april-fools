@@ -1,5 +1,6 @@
 import { useCounter } from './hooks/useCounter'
-import { userColor } from './helpers'
+import { useButton } from './hooks/useButton'
+
 import Button from './components/Button'
 import Counter from './components/Counter'
 
@@ -7,9 +8,10 @@ import './App.css'
 
 const App = () => {
   const [countdown, handleResetCountdown] = useCounter()
+  const { setReferenceColor } = useButton()
 
   const handleClick = () => {
-    console.log(userColor(countdown))
+    setReferenceColor(countdown)
     handleResetCountdown()
   }
 
