@@ -1,7 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from 'react'
 import { userColor } from '../helpers'
 import { fetchInitialUsers } from '../services/users'
-import { getCurrentUser, patchUser } from '../helpers/users'
+import {
+  getCurrentUser,
+  patchUser,
+  setRandomCurrentUser,
+} from '../helpers/users'
 
 export const useButton = () => {
   const buttonRef = useRef()
@@ -13,13 +18,17 @@ export const useButton = () => {
     patchUser(updatedUser)
   }
 
-  // un intervalo que vaya seteando usuarios hasta terminar de mapearlos
+  const initializeApp = () => {
+    const buttonIntervalId = setInterval(() => {
+      const user = setRandomCurrentUser()
+      if (!user) return clearInterval(buttonIntervalId)
+      buttonRef.current.click()
+    }, [7000])
+  }
 
   useEffect(() => {
     fetchInitialUsers()
-    setInterval(() => {
-      buttonRef.current.click()
-    }, [7000])
+    initializeApp()
   }, [])
 
   return { setReferenceColor, buttonRef }

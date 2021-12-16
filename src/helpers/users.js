@@ -13,8 +13,26 @@ export const getCurrentUser = () =>
   JSON.parse(localStorage.getItem(CURRENT_USER))
 
 // set current user
-export const setCurrentUser = (user) =>
+const setCurrentUser = (user) =>
   localStorage.setItem(CURRENT_USER, JSON.stringify(user))
+
+const filterUsersNotClicked = (users) => {
+  const usersNotClicked = users.filter(({ hasClicked }) => !hasClicked)
+  return [usersNotClicked, !usersNotClicked.length]
+}
+
+const randomIndex = (length) => Math.floor(Math.random() * length)
+
+export const setRandomCurrentUser = () => {
+  const allUsers = getAllUsers()
+  const [usersNotClicked, empty] = filterUsersNotClicked(allUsers)
+  if (empty) return null
+
+  const index = randomIndex(usersNotClicked.length)
+  const randomUser = usersNotClicked[index]
+  setCurrentUser(randomUser)
+  return randomUser
+}
 
 export const patchUser = (updatedUser) => {
   const allUsers = getAllUsers()
@@ -25,3 +43,5 @@ export const patchUser = (updatedUser) => {
   saveUsers(patchedUsers)
   setCurrentUser(updatedUser)
 }
+
+export const interactiveFlow = () => {}
