@@ -16,11 +16,12 @@ export const getCurrentUser = () =>
 export const setCurrentUser = (user) =>
   localStorage.setItem(CURRENT_USER, JSON.stringify(user))
 
-export const patchUsers = (updatedUser) => {
+export const patchUser = (updatedUser) => {
   const allUsers = getAllUsers()
   const patchedUsers = allUsers.map((user) => {
     if (user.id !== updatedUser.id) return user
-    return { ...user, ...updatedUser }
+    return { ...updatedUser }
   })
   saveUsers(patchedUsers)
+  setCurrentUser(updatedUser)
 }

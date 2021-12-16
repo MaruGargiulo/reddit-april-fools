@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
-function Button({ handleClick, disabled }) {
-  return (
-    <button onClick={handleClick} disabled={disabled}>
-      Botón
-    </button>
-  )
-}
+const Button = forwardRef(({ handleClick, disabled }, ref) => (
+  <button onClick={handleClick} disabled={disabled} ref={ref}>
+    Botón
+  </button>
+))
 
-Button.propTypes = {}
+Button.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
+}
 
 export default Button

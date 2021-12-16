@@ -8,7 +8,7 @@ import './App.css'
 
 const App = () => {
   const [countdown, handleResetCountdown] = useCounter()
-  const { setReferenceColor } = useButton()
+  const { setReferenceColor, buttonRef } = useButton()
 
   const handleClick = () => {
     setReferenceColor(countdown)
@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <Button handleClick={handleClick} disabled={!countdown} />
+      <Button handleClick={handleClick} disabled={!countdown} ref={buttonRef} />
       <Counter countdown={countdown} />
     </div>
   )

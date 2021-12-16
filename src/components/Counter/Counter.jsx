@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Counter({ countdown }) {
-  return <div>Countdown {countdown}</div>
-}
+const Counter = ({ countdown }) => <div>{countdown}</div>
 
-Counter.propTypes = {}
+Counter.propTypes = {
+  countdown: PropTypes.number.isRequired,
+}
 
 export default Counter
