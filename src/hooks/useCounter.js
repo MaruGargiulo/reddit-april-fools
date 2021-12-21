@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useCallback } from 'react'
-import { BASE_COUNTDOWN, INTERVAL } from '../constants'
+import { BASE_COUNTDOWN, DECRESE_INTERVAL } from '../constants'
 
 export const useCounter = () => {
   const [countdown, setCountdown] = useState(BASE_COUNTDOWN)
@@ -9,12 +9,11 @@ export const useCounter = () => {
   const initializeInterval = useCallback(() => {
     const id = setInterval(() => {
       setCountdown((prevState) => prevState - 1)
-    }, INTERVAL)
+    }, DECRESE_INTERVAL)
     setIntervalId(id)
   })
 
   const handleResetCountdown = useCallback(() => {
-    if (!countdown) return
     setCountdown(BASE_COUNTDOWN)
   })
 

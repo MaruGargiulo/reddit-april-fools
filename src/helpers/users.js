@@ -21,14 +21,14 @@ const filterUsersNotClicked = (users) => {
   return [usersNotClicked, !usersNotClicked.length]
 }
 
-const randomIndex = (length) => Math.floor(Math.random() * length)
+export const randomNumber = (top) => Math.floor(Math.random() * top)
 
 export const setRandomCurrentUser = () => {
   const allUsers = getAllUsers()
   const [usersNotClicked, empty] = filterUsersNotClicked(allUsers)
   if (empty) return null
 
-  const index = randomIndex(usersNotClicked.length)
+  const index = randomNumber(usersNotClicked.length)
   const randomUser = usersNotClicked[index]
   setCurrentUser(randomUser)
   return randomUser
