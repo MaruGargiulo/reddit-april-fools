@@ -26,7 +26,8 @@ const isStepTwo = (number) => number <= 51 && number >= 42
 const isStepThree = (number) => number <= 41 && number >= 32
 const isStepFour = (number) => number <= 31 && number >= 22
 const isStepFive = (number) => number <= 21 && number >= 12
-const isStepSix = (number) => number <= 11 && number >= 0
+const isStepSix = (number) => number <= 11 && number > 0
+const didNotClick = (number) => number === 0
 
 export const userColor = (countdown) => ({
   ...(isStepOne(countdown) && colorTable[STEP_ONE]),
@@ -35,4 +36,5 @@ export const userColor = (countdown) => ({
   ...(isStepFour(countdown) && colorTable[STEP_FOUR]),
   ...(isStepFive(countdown) && colorTable[STEP_FIVE]),
   ...(isStepSix(countdown) && colorTable[STEP_SIX]),
+  ...(didNotClick(countdown) && colorTable[DID_NOT_CLICK]),
 })

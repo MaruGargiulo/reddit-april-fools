@@ -5,7 +5,7 @@ import './Counter.css'
 
 const Counter = ({ countdown }) => (
   <div className="counter">
-    00:00:{countdown < 10 && 0}
+    {countdown < 10 && 0}
     {countdown}
   </div>
 )

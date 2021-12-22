@@ -18,20 +18,48 @@ const setCurrentUser = (user) =>
 
 const filterUsersNotClicked = (users) => {
   const usersNotClicked = users.filter(({ hasClicked }) => !hasClicked)
-  return [usersNotClicked, !usersNotClicked.length]
+  return usersNotClicked
+}
+
+const filterUsersClicked = (users) => {
+  const usersClicked = users.filter(({ hasClicked }) => hasClicked)
+  return usersClicked
 }
 
 export const randomNumber = (top) => Math.floor(Math.random() * top)
 
 export const setRandomCurrentUser = () => {
   const allUsers = getAllUsers()
-  const [usersNotClicked, empty] = filterUsersNotClicked(allUsers)
-  if (empty) return null
+  const usersNotClicked = filterUsersNotClicked(allUsers)
+  if (!usersNotClicked.length) return null
 
   const index = randomNumber(usersNotClicked.length)
   const randomUser = usersNotClicked[index]
   setCurrentUser(randomUser)
   return randomUser
+}
+
+const colorsCount = (users) => {
+  return users.reduce((prevUser, user) => {
+    const colorKey = user.color
+
+    if (prevUser[colorKey]) {
+      return {
+        ...prevUser,
+        [colorKey]: prevUser[colorKey] + 1,
+      }
+    }
+    return {
+      ...prevUser,
+      [colorKey]: 1,
+    }
+  }, {})
+}
+
+export const usersMetrics = () => {
+  const allUsers = getAllUsers()
+  const usersClicked = filterUsersClicked(allUsers)
+  return colorsCount(usersClicked)
 }
 
 export const patchUser = (updatedUser) => {

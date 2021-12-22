@@ -1,16 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useRef } from 'react'
-import { setRandomCurrentUser, randomNumber } from '../helpers/users'
+import { useEffect, useRef, useState } from 'react'
+import {
+  setRandomCurrentUser,
+  randomNumber,
+  usersMetrics,
+} from '../helpers/users'
 import { BASE_COUNTDOWN } from '../constants'
 
-export const useSimulation = (startSimulation) => {
+export const useSimulation = (buttonClicked) => {
   const buttonRef = useRef()
+  const [clicksCount, setClicksCount] = useState(0)
+  const [usersColorMetrics, setUsersColorMetrics] = useState([])
 
   const randomUserButtonClick = () => {
     const user = setRandomCurrentUser()
     if (!user) return false
 
     buttonRef.current.click()
+    setClicksCount((prevState) => prevState + 1)
+    setUsersColorMetrics(usersMetrics())
     return true
   }
 
@@ -26,8 +34,8 @@ export const useSimulation = (startSimulation) => {
   }
 
   useEffect(() => {
-    if (startSimulation) simulateInteraction()
-  }, [startSimulation])
+    if (buttonClicked) simulateInteraction()
+  }, [buttonClicked])
 
-  return buttonRef
+  return { buttonRef, clicksCount, usersColorMetrics }
 }
