@@ -1,5 +1,5 @@
 import { API } from '../env'
-import { saveUsers } from '../helpers/users'
+import { saveUsers } from '../utils/users'
 
 // shapes each user object
 const modelUsers = (users) =>

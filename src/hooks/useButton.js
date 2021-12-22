@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { userColor } from '../helpers'
-import { getCurrentUser, patchUser } from '../helpers/users'
+import { userColor } from '../utils/button'
+import { getCurrentUser, patchUser } from '../utils/users'
 
 export const useButton = () => {
   const setReferenceColor = (time) => {

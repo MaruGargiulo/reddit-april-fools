@@ -71,5 +71,3 @@ export const patchUser = (updatedUser) => {
   saveUsers(patchedUsers)
   setCurrentUser(updatedUser)
 }
-
-export const interactiveFlow = () => {}

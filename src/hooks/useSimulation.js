@@ -4,7 +4,7 @@ import {
   setRandomCurrentUser,
   randomNumber,
   usersMetrics,
-} from '../helpers/users'
+} from '../utils/users'
 import { BASE_COUNTDOWN } from '../constants'
 
 export const useSimulation = (buttonClicked) => {

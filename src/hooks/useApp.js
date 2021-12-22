@@ -4,7 +4,7 @@ import { useCounter } from './useCounter'
 import { useButton } from './useButton'
 import { useSimulation } from './useSimulation'
 import { fetchInitialUsers } from '../services/users'
-import { setRandomCurrentUser } from '../helpers/users'
+import { setRandomCurrentUser } from '../utils/users'
 
 const noop = () => {}
 
