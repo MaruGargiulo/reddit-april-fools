@@ -1,0 +1,16 @@
+.metrics {
+  position: absolute;
+  left: 0;
+  background-color: var(--lighter-gray);
+  padding: 20px;
+  border-radius: 0 5px 5px 0;
+  font-weight: 500;
+}
+
+.metrics__color {
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  width: 30%;
+  font-weight: 600;
+}

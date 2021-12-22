@@ -5,11 +5,8 @@
   cursor: pointer;
 }
 
-.button--primary {
-  background-color: var(--brand-primary);
-  padding: 15px;
-  color: white;
-  border-radius: 8px;
+.button:hover {
+  filter: saturate(78%);
 }
 
 .button--hidden {

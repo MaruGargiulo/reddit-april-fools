@@ -9,7 +9,7 @@ import { BASE_COUNTDOWN } from '../constants'
 
 export const useSimulation = (buttonClicked) => {
   const buttonRef = useRef()
-  const [clicksCount, setClicksCount] = useState(0)
+  const [clicksCount, setClicksCount] = useState(1)
   const [usersColorMetrics, setUsersColorMetrics] = useState([])
 
   const randomUserButtonClick = () => {
@@ -21,14 +21,14 @@ export const useSimulation = (buttonClicked) => {
     setUsersColorMetrics(usersMetrics())
     return true
   }
-
+  
   const simulateInteraction = () => {
     let timeoutId
     const randomInterval = randomNumber(BASE_COUNTDOWN * 1000 - 1000)
-    const clicked = randomUserButtonClick()
-
-    if (!clicked) return clearTimeout(timeoutId)
     timeoutId = setTimeout(() => {
+      const clicked = randomUserButtonClick()
+
+      if (!clicked) return clearTimeout(timeoutId)
       simulateInteraction()
     }, randomInterval)
   }

@@ -7,18 +7,16 @@ const STEP_FIVE = 'STEP_FIVE'
 const STEP_SIX = 'STEP_SIX'
 
 // BUTTON STATUS
-const DISABLED = 'DISABLED'
 const DID_NOT_CLICK = 'DID_NOT_CLICK'
 
 const colorTable = {
-  [STEP_ONE]: { color: 'purple' },
-  [STEP_TWO]: { color: 'blue' },
-  [STEP_THREE]: { color: 'green' },
-  [STEP_FOUR]: { color: 'yellow' },
-  [STEP_FIVE]: { color: 'orange' },
-  [STEP_SIX]: { color: 'red' },
-  [DID_NOT_CLICK]: { color: 'grey' },
-  [DISABLED]: { color: 'white' },
+  [STEP_ONE]: { color: '#860686' },
+  [STEP_TWO]: { color: '#3838bf' },
+  [STEP_THREE]: { color: '#32c132' },
+  [STEP_FOUR]: { color: '#f2f228' },
+  [STEP_FIVE]: { color: '#fda401' },
+  [STEP_SIX]: { color: '#f20808' },
+  [DID_NOT_CLICK]: { color: '#9d9d9d' },
 }
 
 const isStepOne = (number) => number <= 60 && number >= 52

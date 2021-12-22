@@ -6,7 +6,7 @@ export const useButton = () => {
   const setReferenceColor = (time) => {
     const { color } = userColor(time)
     const currentUser = getCurrentUser()
-    const updatedUser = { ...currentUser, color, hasClicked: true }
+    const updatedUser = { ...currentUser, color, hasClicked: time > 0 }
     patchUser(updatedUser)
     return updatedUser
   }
