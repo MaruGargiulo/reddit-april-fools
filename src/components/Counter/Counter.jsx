@@ -1,7 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Counter = ({ countdown }) => <div>{countdown}</div>
+import './Counter.css'
+
+const Counter = ({ countdown }) => (
+  <div className="counter">
+    00:00:{countdown < 10 && 0}
+    {countdown}
+  </div>
+)
 
 Counter.propTypes = {
   countdown: PropTypes.number.isRequired,

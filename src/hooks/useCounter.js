@@ -23,7 +23,10 @@ export const useCounter = () => {
   }, [])
 
   useEffect(() => {
-    if (countdown <= 0) clearInterval(intervalId)
+    if (countdown <= 0) {
+      clearInterval(intervalId)
+      setCountdown(0)
+    }
   }, [countdown])
 
   return [countdown, handleResetCountdown]

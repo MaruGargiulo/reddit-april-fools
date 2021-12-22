@@ -1,0 +1,24 @@
+.button {
+  background: unset;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.button--primary {
+  background-color: var(--brand-primary);
+  padding: 15px;
+  color: white;
+  border-radius: 8px;
+}
+
+.button--hidden {
+  visibility: hidden;
+}
+
+.button[disabled],
+.button--disabled {
+  background-color: #e7e7e7;
+  color: #cacaca;
+  cursor: default;
+}

@@ -5,6 +5,7 @@ import { useSimulation } from './hooks/useSimulation'
 
 import Button from './components/Button'
 import Counter from './components/Counter'
+import Nav from './components/Nav/Nav'
 
 import './App.css'
 
@@ -14,13 +15,11 @@ const App = () => {
   const [disabled, setDisabled] = useState(false)
   const [startSimulation, setStartSimulation] = useState(false)
 
+  const [countdown, handleResetCountdown] = useCounter()
   const buttonRef = useSimulation(startSimulation)
   const setReferenceColor = useButton()
-  const [countdown, handleResetCountdown] = useCounter()
-  
+
   const handleClick = () => {
-    if (disabled) return noop
-    
     setReferenceColor(countdown)
     handleResetCountdown()
     setDisabled(true)
@@ -29,12 +28,18 @@ const App = () => {
 
   return (
     <>
-      <div className="app">
-        <Button handleClick={handleClick} disabled={disabled || !countdown} />
+      <Nav />
+      <div className="container">
         <Counter countdown={countdown} />
+        <Button
+          handleClick={!disabled ? handleClick : noop}
+          disabled={disabled || !countdown}
+          text="Click Me"
+          theme="primary"
+        />
       </div>
       <Button
-        style={{ visibility: 'hidden' }}
+        hidden
         handleClick={() => {
           setReferenceColor(countdown)
           handleResetCountdown()

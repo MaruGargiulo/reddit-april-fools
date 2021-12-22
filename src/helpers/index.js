@@ -9,7 +9,6 @@ const STEP_SIX = 'STEP_SIX'
 // BUTTON STATUS
 const DISABLED = 'DISABLED'
 const DID_NOT_CLICK = 'DID_NOT_CLICK'
-const CLICKED = 'CLICKED'
 
 const colorTable = {
   [STEP_ONE]: { color: 'purple' },
