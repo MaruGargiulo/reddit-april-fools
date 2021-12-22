@@ -63,6 +63,7 @@ export const useApp = () => {
   useEffect(() => {
     if (countdown === 0) {
       const updatedUser = setReferenceColor(0)
+      console.log({updatedUser})
       setCurrentUser(updatedUser)
       setLoggedUser(updatedUser)
     }
@@ -76,6 +77,6 @@ export const useApp = () => {
     showMetrics,
     handleUserClick,
     buttonLogic,
-    userLogged: currentUser,
+    currentUser,
   }
 }

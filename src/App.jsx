@@ -18,7 +18,7 @@ const App = () => {
     showMetrics,
     handleUserClick,
     buttonLogic,
-    userLogged,
+    currentUser,
   } = useApp()
 
   return (
@@ -36,8 +36,8 @@ const App = () => {
         />
         {(showMetrics || !countdown) && (
           <UserInfo
-            userColor={userLogged.color}
-            hasClicked={userLogged.hasClicked}
+            userColor={currentUser.color}
+            hasClicked={currentUser.hasClicked}
           />
         )}
       </div>
