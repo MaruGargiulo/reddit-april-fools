@@ -4,13 +4,17 @@ import { useCounter } from './useCounter'
 import { useButton } from './useButton'
 import { useSimulation } from './useSimulation'
 import { fetchInitialUsers } from '../services/users'
-import { setRandomCurrentUser } from '../utils/users'
+import {
+  setRandomCurrentUser,
+  getLoggedUser,
+  setLoggedUser,
+} from '../utils/users'
 
 const noop = () => {}
 
 export const useApp = () => {
-  const [clicked, setClicked] = useState(false)
-  const [userLogged, setUserLogged] = useState()
+  const [clicked, setClicked] = useState()
+  const [currentUser, setCurrentUser] = useState()
 
   const [countdown, handleResetCountdown] = useCounter()
   const { buttonRef, clicksCount, usersColorMetrics } = useSimulation(clicked)
@@ -22,9 +26,9 @@ export const useApp = () => {
     () => ({
       clicksCount,
       usersColorMetrics,
-      userLogged,
+      currentUser,
     }),
-    [clicksCount, usersColorMetrics, userLogged]
+    [clicksCount, usersColorMetrics, currentUser]
   )
 
   const buttonLogic = () => {
@@ -37,20 +41,30 @@ export const useApp = () => {
     if (!countdown) return noop
 
     const updatedUser = buttonLogic()
-    setUserLogged(updatedUser)
+    setCurrentUser(updatedUser)
+    setLoggedUser(updatedUser)
     setClicked(true)
   }
 
   useEffect(() => {
     fetchInitialUsers()
-    const loggedUser = setRandomCurrentUser()
-    setUserLogged(loggedUser)
+    const loggedUser = getLoggedUser()
+    if (loggedUser) {
+      setCurrentUser(loggedUser)
+      setClicked(loggedUser.hasClicked)
+    } else {
+      const randomLogIn = setRandomCurrentUser()
+      setCurrentUser(randomLogIn)
+      setLoggedUser(randomLogIn)
+    }
+
   }, [])
 
   useEffect(() => {
     if (countdown === 0) {
       const updatedUser = setReferenceColor(0)
-      setUserLogged(updatedUser)
+      setCurrentUser(updatedUser)
+      setLoggedUser(updatedUser)
     }
   }, [countdown])
 
@@ -62,6 +76,6 @@ export const useApp = () => {
     showMetrics,
     handleUserClick,
     buttonLogic,
-    userLogged,
+    userLogged: currentUser,
   }
 }
