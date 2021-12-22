@@ -16,8 +16,8 @@ function Metrics({ clicksCount, usersColorMetrics }) {
 
   const infoText = useMemo(() => {
     if (!clicksCount) return 'Ningún usuario clickeó el botón'
-    if (clicksCount === 1) return 'Gracias por clikear el botón! Activaste la simulación.'
-    return `${clicksCount} usuarios clickearon le botón`
+    if (clicksCount === 1) return 'Gracias por clickear el botón! Activaste la simulación.'
+    return `${clicksCount} usuarios clickearon el botón`
   }, [clicksCount])
 
   return (
