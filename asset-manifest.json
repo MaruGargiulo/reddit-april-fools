@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/reddit-april-fools/static/css/main.5ced3215.css",
-    "main.js": "/reddit-april-fools/static/js/main.74aec128.js",
+    "main.css": "/reddit-april-fools/static/css/main.1270ffa7.css",
+    "main.js": "/reddit-april-fools/static/js/main.4572400a.js",
     "static/media/reddit-logo.png": "/reddit-april-fools/static/media/reddit-logo.0d20ab93b6522f875b0a.png",
     "index.html": "/reddit-april-fools/index.html",
+    "static/media/hamburguer-menu.svg": "/reddit-april-fools/static/media/hamburguer-menu.19fb64e1e61acba7091499ecd478a55f.svg",
     "static/media/mag-glass.svg": "/reddit-april-fools/static/media/mag-glass.f23b0e4804f800f6a42450c92857fce0.svg",
-    "main.5ced3215.css.map": "/reddit-april-fools/static/css/main.5ced3215.css.map",
-    "main.74aec128.js.map": "/reddit-april-fools/static/js/main.74aec128.js.map"
+    "main.1270ffa7.css.map": "/reddit-april-fools/static/css/main.1270ffa7.css.map",
+    "main.4572400a.js.map": "/reddit-april-fools/static/js/main.4572400a.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ced3215.css",
-    "static/js/main.74aec128.js"
+    "static/css/main.1270ffa7.css",
+    "static/js/main.4572400a.js"
   ]
 }
