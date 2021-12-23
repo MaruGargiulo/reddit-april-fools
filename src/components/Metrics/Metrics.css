@@ -1,17 +1,46 @@
 .metrics {
   position: absolute;
   left: 0;
+  top: 0;
   background-color: var(--lighter-gray);
   padding: 20px;
   border-radius: 0 5px 5px 0;
   font-weight: 500;
-  width: 30%;
+  width: 100%;
+}
+
+.metrics__info {
+  margin: 0;
+  margin-bottom: 12px;
+  padding: 0 5px;
+}
+
+.metrics__colors-count {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .metrics__color {
+  display: inline-block;
   border-radius: 3px;
   color: white;
   text-align: center;
-  width: 30%;
+  min-width: 26%;
+  flex: auto;
   font-weight: 600;
+  margin: 5px 5px;
+}
+
+@media (min-width: 650px) {
+  .metrics {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22%;
+  }
+
+  .metrics__colors-count {
+    flex-direction: column;
+  }
 }

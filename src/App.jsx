@@ -26,14 +26,16 @@ const App = () => {
       <Nav />
       <div className="app-container">
         {showMetrics && <Metrics {...providerValue} />}
-        <Counter countdown={countdown} />
-        <Button
-          className="aprils-fool-button"
-          handleClick={handleUserClick}
-          disabled={clicked || !countdown}
-          text="Click Me!"
-          theme="primary"
-        />
+        <div className="counter-button">
+          <Counter countdown={countdown} />
+          <Button
+            className="aprils-fool-button"
+            handleClick={handleUserClick}
+            disabled={clicked || !countdown}
+            text="Click Me!"
+            theme="primary"
+          />
+        </div>
         {(showMetrics || !countdown) && (
           <UserInfo
             userColor={currentUser.color}

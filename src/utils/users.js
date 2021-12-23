@@ -7,7 +7,7 @@ export const saveUsers = (usersArr) =>
   localStorage.setItem(USERS, JSON.stringify(usersArr))
 
 // gets users from localStorage
-export const getAllUsers = () => JSON.parse(localStorage.getItem(USERS))
+export const getAllUsers = () => JSON.parse(localStorage.getItem(USERS)) || []
 
 // get current user localStorage
 export const getCurrentUser = () =>
@@ -35,7 +35,7 @@ const filterUsersClicked = (users) => {
 export const randomNumber = (top) => Math.floor(Math.random() * top)
 
 export const setRandomCurrentUser = () => {
-  const allUsers = getAllUsers() || []
+  const allUsers = getAllUsers()
   const usersNotClicked = filterUsersNotClicked(allUsers)
   if (!usersNotClicked.length) return null
 

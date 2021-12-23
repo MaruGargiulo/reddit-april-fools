@@ -8,34 +8,37 @@ function Metrics({ clicksCount, usersColorMetrics }) {
 
   for (const color in usersColorMetrics) {
     shapedColors.push(
-      <p className="metrics__color" style={{ backgroundColor: color }}>
+      <span className="metrics__color" style={{ backgroundColor: color }}>
         {usersColorMetrics[color]}
-      </p>
+      </span>
     )
   }
 
   const infoText = useMemo(() => {
     if (!clicksCount) return 'Ningún usuario clickeó el botón'
-    if (clicksCount === 1) return 'Gracias por clickear el botón! Activaste la simulación.'
+    if (clicksCount === 1)
+      return 'Gracias por clickear el botón! Activaste la simulación.'
     return `${clicksCount} usuarios clickearon el botón`
   }, [clicksCount])
 
   return (
     <div className="metrics">
-      <p>{infoText}</p>
-      {shapedColors.map((colorInfo) => colorInfo)}
+      <p className="metrics__info">{infoText}</p>
+      <div className="metrics__colors-count">
+        {shapedColors.map((colorInfo) => colorInfo)}
+      </div>
     </div>
   )
 }
 
 Metrics.propTypes = {
   clicksCount: PropTypes.number,
-  usersColorMetrics: PropTypes.object,
+  usersColorMetrics: PropTypes.array,
 }
 
 Metrics.defaultProps = {
   clicksCount: 0,
-  usersColorMetrics: {},
+  usersColorMetrics: [],
 }
 
 export default Metrics

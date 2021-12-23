@@ -14,7 +14,7 @@ const noop = () => {}
 
 export const useApp = () => {
   const [clicked, setClicked] = useState()
-  const [currentUser, setCurrentUser] = useState()
+  const [currentUser, setCurrentUser] = useState({})
 
   const [countdown, handleResetCountdown] = useCounter()
   const { buttonRef, clicksCount, usersColorMetrics } = useSimulation(clicked)
@@ -57,13 +57,11 @@ export const useApp = () => {
       setCurrentUser(randomLogIn)
       setLoggedUser(randomLogIn)
     }
-
   }, [])
 
   useEffect(() => {
     if (countdown === 0) {
       const updatedUser = setReferenceColor(0)
-      console.log({updatedUser})
       setCurrentUser(updatedUser)
       setLoggedUser(updatedUser)
     }

@@ -11,17 +11,17 @@
 }
 
 .nav-bar__search {
-  width: 40%;
+  width: 50%;
   position: relative;
 }
 
 .nav-bar__search__icon {
-    position: absolute;
-    width: 20px;
-    filter: invert(60%);
-    top: 50%;
-    left: 8px;
-    transform: translateY(-50%);
+  position: absolute;
+  width: 20px;
+  filter: invert(60%);
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
 }
 
 .nav-bar__search input {
@@ -37,9 +37,13 @@
 
 .nav-bar__search input:focus,
 .nav-bar__search input:hover {
-  background-color:var(--white);
+  background-color: var(--white);
   border-color: var(--brand-secondary);
   outline: none;
+}
+
+.nav-bar__buttons {
+  display: none;
 }
 
 .nav-bar__button {
@@ -62,4 +66,18 @@
   background-color: var(--white);
   color: var(--brand-secondary);
   border: solid 1px var(--brand-secondary);
+}
+
+@media (min-width: 650px) {
+  .nav-bar__hamburguer-menu {
+    display: none;
+  }
+
+  .nav-bar__buttons {
+    display: block;
+  }
+
+  .nav-bar__search {
+    width: 40%;
+  }
 }
